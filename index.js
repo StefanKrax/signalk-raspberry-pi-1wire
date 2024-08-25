@@ -78,6 +78,18 @@ module.exports = function (app) {
           saveOptions = true
         }
         
+        // set units to Kelvin
+        app.handleMessage(plugin.id,{
+          updates:[{
+                  meta: [{
+                          path: 'environment.' + device.key,
+                          value: {
+                                  units: "K"
+                                  }
+                          },]
+                    }]
+        })
+
         _deviceList.push(device);
       })
       
